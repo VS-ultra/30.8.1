@@ -16,8 +16,8 @@ func main() {
 	}
 	defer store.Close()
 
-	// Я не уверен нужена ли эта часть кода тк ее не было в ТЗ для ее работы нужена быть заполнена БД
-	newTask := storage.Task{
+	// Я не уверен нужна ли эта часть кода тк ее не было в ТЗ для ее работы нужена быть заполнена БД
+	/*newTask := storage.Task{
 		Title:   "New Task",
 		Content: "This is a new task",
 	}
@@ -48,4 +48,5 @@ func main() {
 		log.Fatalf("Unable to delete task: %v\n", err)
 	}
 	fmt.Println("Task deleted")
+ */
 }
