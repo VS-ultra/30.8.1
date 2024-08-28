@@ -78,15 +78,13 @@ func (s *Storage) Task(taskID, authorID int) ([]Task, error) {
 
 func (s *Storage) NewTask(t Task) (int, error) {
 	var id int
-	err := s.db.QueryRow(context.Background(), `
-    INSERT INTO tasks (author_id, assigned_id, title, content)
-    VALUES ($1, $2, $3, $4) RETURNING id;
-    ,
-    t.AuthorID,
-    t.AssignedID,
-    t.Title,
-    t.Content,
-  `).Scan(&id)
+	err := s.db.QueryRow(context.Background(), ` 
+	  INSERT INTO tasks (title, content)
+	  VALUES ($1, $2) RETURNING id;
+	  `,
+		t.Title,
+		t.Content,
+	).Scan(&id)
 	return id, err
 }
 

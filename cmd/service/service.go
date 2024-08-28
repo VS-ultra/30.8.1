@@ -18,10 +18,8 @@ func main() {
 
 	// Я не уверен нужена ли эта часть кода тк ее не было в ТЗ для ее работы нужена быть заполнена БД
 	newTask := storage.Task{
-		AuthorID:   1,
-		AssignedID: 2,
-		Title:      "New Task",
-		Content:    "This is a new task",
+		Title:   "New Task",
+		Content: "This is a new task",
 	}
 	taskID, err := store.NewTask(newTask)
 	if err != nil {
